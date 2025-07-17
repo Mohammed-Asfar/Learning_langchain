@@ -1,3 +1,15 @@
+# 📚 Project 3: Custom PDF Question Answering Bot
+# Goal: Ask questions about your own PDF using embeddings.
+
+# ✅ Learn:
+
+# DocumentLoader, TextSplitter
+
+# FAISS VectorStore
+
+# RetrievalQA
+
+
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS

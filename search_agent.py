@@ -1,3 +1,13 @@
+# 🔍 Project 4: Search-Powered Agent
+# Goal: Use Google Search tool with LangChain Agent.
+
+# ✅ Learn:
+
+# initialize_agent
+
+# Using tools in LangChain
+
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools.tavily_search import TavilySearchResults
 from langchain.agents import initialize_agent
