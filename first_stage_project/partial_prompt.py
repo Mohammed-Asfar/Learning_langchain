@@ -6,11 +6,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 prompt = PromptTemplate.from_template(
-    "Suggest 3 startup ideas in the field of {industry} for a beginner."
+    "Give 3 {tone} marketing slogans for a product in {industry}"
 )
+
+partial_prompt = prompt.partial(tone="Bold")
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
-chains = LLMChain(llm=llm, prompt=prompt)
+chain = LLMChain(llm=llm, prompt=partial_prompt)
 
-print(chains.run(industry="healthcare"))
+print(chain.run(industry="fashion"))
