@@ -10,7 +10,7 @@
 # RetrievalQA
 
 
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -22,7 +22,7 @@ load_dotenv()
 
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     temperature=0.2,
 )
 
@@ -37,8 +37,8 @@ def create_vector_db(pdf_path):
     return db
 
 
-retriever = create_vector_db("pdf/God.pdf").as_retriever()
+retriever = create_vector_db("pdf/doc.pdf").as_retriever()
 qa = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
-res = qa.run("is there is a god?")
+res = qa.run("what is the Proposed Solution")
 print(res)
